@@ -4,37 +4,37 @@ projects:
     version: 0.7.107
   ../catpaw-core:
     library: catpaw/core
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-schedule:
     library: catpaw/schedule
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-web:
     library: catpaw/web
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-dialog:
     library: catpaw/dialog
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-mysql:
     library: catpaw/mysql
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-queue:
     library: catpaw/queue
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-raspberrypi:
     library: catpaw/raspberrypi
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-store:
     library: catpaw/store
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-text:
     library: catpaw/text
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-starter:
     library: catpaw/starter
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 0.7.106
+    version: 0.7.107
