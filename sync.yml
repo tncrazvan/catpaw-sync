@@ -1,0 +1,44 @@
+projects:
+  ../catpaw-build:
+    library: catpaw/build
+    version: 0.7.107
+  ../catpaw-core:
+    library: catpaw/core
+    version: 0.7.105
+  ../catpaw-schedule:
+    library: catpaw/schedule
+    version: 0.7.105
+  ../catpaw-web:
+    library: catpaw/web
+    version: 0.7.105
+    overwrite: true
+  ../catpaw-dialog:
+    library: catpaw/dialog
+    version: 0.7.105
+  ../catpaw-examples:
+    library: catpaw/examples
+    version: 0.7.105
+  ../catpaw-mysql:
+    library: catpaw/mysql
+    version: 0.7.105
+  ../catpaw-queue:
+    library: catpaw/queue
+    version: 0.7.105
+  ../catpaw-raspberrypi:
+    library: catpaw/raspberrypi
+    version: 0.7.105
+  ../catpaw-store:
+    library: catpaw/store
+    version: 0.7.105
+  ../catpaw-text:
+    library: catpaw/text
+    version: 0.7.105
+  ../catpaw-starter:
+    library: catpaw/starter
+    version: 0.7.105
+  ../catpaw-web-starter:
+    library: catpaw/web-starter
+    version: 0.7.105
+  ../catpaw-markdown-starter:
+    library: catpaw/markdown-starter
+    version: 0.7.105
