@@ -3,27 +3,27 @@ projects:
   ../catpaw-build:
     version: 0.7.107
   ../catpaw-core:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-schedule:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-web:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-dialog:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-mysql:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-queue:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-raspberrypi:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-store:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-text:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-starter:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-web-starter:
-    version: 0.7.106
+    version: 0.7.107
   ../catpaw-markdown-starter:
-    version: 0.7.106
+    version: 0.7.107
 ...
