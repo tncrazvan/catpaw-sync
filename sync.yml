@@ -11,12 +11,8 @@ projects:
   ../catpaw-web:
     library: catpaw/web
     version: 0.7.105
-    overwrite: true
   ../catpaw-dialog:
     library: catpaw/dialog
-    version: 0.7.105
-  ../catpaw-examples:
-    library: catpaw/examples
     version: 0.7.105
   ../catpaw-mysql:
     library: catpaw/mysql

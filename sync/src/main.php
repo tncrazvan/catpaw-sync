@@ -6,6 +6,7 @@ use function Amp\File\read;
 use function Amp\File\write;
 use function Amp\Future\awaitAll;
 
+use CatPaw\Attributes\Option;
 use CatPaw\Container;
 
 use function CatPaw\execute;
@@ -15,11 +16,14 @@ use function CatPaw\Text\nocolor;
 
 use Psr\Log\LoggerInterface;
 
-function main() {
-    sync();
+function main(#[Option("--environment")] $env) {
+    sync(env: $env);
 }
 
-function sync():void {
+function sync(string $env):void {
+    $env = realpath($env);
+    $envDir = dirname($env);
+
     $red        = foreground(red: 220, green: 20, blue: 20);
     $green      = foreground(red: 150, green: 220);
     $blue       = foreground(red:0, green:180, blue:220, );
@@ -40,7 +44,7 @@ function sync():void {
     /** @var array */
     $projects = $_ENV['projects'] ?? [];
 
-    $root             = realpath('.');
+    $root             = realpath($envDir);
     $libraries        = [];
     $versions         = [];
     $pushInstructions = [];
