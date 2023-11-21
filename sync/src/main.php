@@ -10,13 +10,16 @@ use CatPaw\Attributes\Option;
 use CatPaw\Container;
 
 use function CatPaw\execute;
+use function CatPaw\readline;
 use function CatPaw\Text\foreground;
 
 use function CatPaw\Text\nocolor;
 
 use Psr\Log\LoggerInterface;
 
-function main(#[Option("--environment")] $env) {
+function main(
+    #[Option("--environment")] string $env,
+) {
     sync(env: $env);
 }
 
@@ -48,10 +51,14 @@ function sync(string $env):void {
     $libraries        = [];
     $versions         = [];
     $pushInstructions = [];
-
+    $anyNuke = false;
     foreach ($projects as $projectName => $projectProperties) {
         $library       = $projectProperties['library'] ?? $projectName;
         $versionString = preg_replace('/"/', '\\"', $projectProperties['version']);
+        $nuke          = !!($projectProperties['nuke']??false);
+        if($nuke){
+            $anyNuke = true;
+        }
         $versionPieces = explode('.', $versionString);
         $version       = join('.', [$versionPieces[0] ?? '0',$versionPieces[1] ?? '0']);
         $message       = preg_replace('/"/', '\\"', $projectProperties['message'] ?? "Version $versionString");
@@ -63,12 +70,20 @@ function sync(string $env):void {
         $versions[$library] = $version;
     }
 
+    if($anyNuke){
+        $logger->info("Removing cache due to nuking.");
+        if(exists(".sync.cache")){
+            deleteFile(".sync.cache");
+        }
+    }
+
     $testsMessages = [];
 
     foreach ($projects as $projectName => $projectProperties) {
         $library       = $projectProperties['library'] ?? $projectName;
         $versionString = preg_replace('/"/', '\\"', $projectProperties['version']);
-
+        /** @var bool */
+        $nuke          = !!($projectProperties['nuke'] ?? false);
         $versionPieces = explode('.', $versionString);
         $version       = join('.', [$versionPieces[0] ?? '0',$versionPieces[1] ?? '0']);
         $message       = preg_replace('/"/', '\\"', $projectProperties['message'] ?? "Version $versionString");
@@ -79,6 +94,14 @@ function sync(string $env):void {
         $composerFileName = "$cwd/composer.json";
         $composer         = json_decode(read($composerFileName));
         $canTest          = isset($composer->scripts->test) && $composer->scripts->test;
+
+        if($nuke){
+            nuke($cwd);
+            echo <<<TEXT
+            {$red}Tags of "$projectName" have been nuked.\n
+            TEXT;
+            echo nocolor();
+        }
 
         if (isset($composer->require)) {
             foreach ($composer->require as $composerLibrary => &$composerVersion) {
@@ -111,6 +134,7 @@ function sync(string $env):void {
             $green,
             $cian,
             $library,
+            $nuke,
         ) {
             if ($canTest) {
                 [$ok, $testMessage]          = testVersion($cwd);
@@ -155,12 +179,12 @@ function sync(string $env):void {
                 echo nocolor();
 
                 return;
-            } 
-
+            }
 
             if (exists("$cwd/composer.lock")) {
                 deleteFile("$cwd/composer.lock");
             }
+
             echo execute("git fetch", $cwd);
             echo execute("git pull", $cwd);
             echo execute("git add .", $cwd);
@@ -188,6 +212,7 @@ function sync(string $env):void {
     }
 
     $composerUpdateInstructions = [];
+    $anyNuke = false;
     foreach ($projects as $projectName => $projectProperties) {
         $versionString = preg_replace('/"/', '\\"', $projectProperties['version']);
         $message       = preg_replace('/"/', '\\"', $projectProperties['message'] ?? "Version $versionString");
@@ -197,9 +222,24 @@ function sync(string $env):void {
     }
 
     awaitAll($composerUpdateInstructions);
-        
+    
     $cacheStringified = yaml_emit($cache, YAML_UTF8_ENCODING);
     write(".sync.cache", $cacheStringified);
+}
+
+
+/**
+ * @return void
+ */
+function nuke(string $cwd):void {
+    #Delete local tags.
+    echo execute("git tag -l | xargs git tag -d", $cwd);
+    #Fetch remote tags.
+    echo execute("git fetch", $cwd);
+    #Delete remote tags.
+    echo execute("git tag -l | xargs git push --delete origin", $cwd);
+    #Delete local tags.
+    echo execute("git tag -l | xargs git tag -d", $cwd);
 }
 
 function untag(string $cwd, string $name):void {
@@ -251,6 +291,3 @@ function publishVersion(string $projectName, string $library, string $versionStr
     echo execute("git tag -a \"$versionString\" -m\"$message\"", $cwd);
     echo execute("git push --tags", $cwd);
 }
-
-
-
