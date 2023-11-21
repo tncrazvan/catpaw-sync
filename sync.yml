@@ -34,7 +34,7 @@ projects:
     version: 0.7.109
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 0.7.109
+    version: 0.7.110
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
     version: 0.7.109
