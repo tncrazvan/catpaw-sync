@@ -5,7 +5,7 @@ projects:
     # nuke: true
   ../catpaw-core:
     library: catpaw/core
-    version: 1.0.2
+    version: 1.0.4
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
@@ -13,7 +13,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.2
+    version: 1.0.5
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
@@ -21,7 +21,7 @@ projects:
     # nuke: true
   ../catpaw-mysql:
     library: catpaw/mysql
-    version: 1.0.1
+    version: 1.0.2
     # nuke: true
   ../catpaw-queue:
     library: catpaw/queue
@@ -33,7 +33,7 @@ projects:
     # nuke: true
   ../catpaw-store:
     library: catpaw/store
-    version: 1.0.1
+    version: 1.0.2
     # nuke: true
   ../catpaw-text:
     library: catpaw/text
