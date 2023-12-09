@@ -21,7 +21,7 @@ projects:
     # nuke: true
   ../catpaw-mysql:
     library: catpaw/mysql
-    version: 1.0.2
+    version: 1.0.3
     # nuke: true
   ../catpaw-queue:
     library: catpaw/queue
