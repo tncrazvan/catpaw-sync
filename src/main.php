@@ -10,7 +10,6 @@ use CatPaw\Attributes\Option;
 use CatPaw\Container;
 
 use function CatPaw\execute;
-use function CatPaw\readline;
 use function CatPaw\Text\foreground;
 
 use function CatPaw\Text\nocolor;
