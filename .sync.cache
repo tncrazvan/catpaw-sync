@@ -1,29 +1,29 @@
 ---
 projects:
   ../catpaw-build:
-    version: 1.0.4
+    version: 1.0.5
   ../catpaw-core:
-    version: 1.0.8
+    version: 1.0.9
   ../catpaw-schedule:
-    version: 1.0.4
+    version: 1.0.5
   ../catpaw-web:
-    version: 1.0.10
+    version: 1.0.11
   ../catpaw-dialog:
-    version: 1.0.4
+    version: 1.0.5
   ../catpaw-mysql:
-    version: 1.0.6
+    version: 1.0.7
   ../catpaw-queue:
-    version: 1.0.4
+    version: 1.0.5
   ../catpaw-raspberrypi:
-    version: 1.0.4
+    version: 1.0.5
   ../catpaw-store:
-    version: 1.0.5
+    version: 1.0.6
   ../catpaw-text:
-    version: 1.0.4
-  ../catpaw-starter:
-    version: 1.0.4
-  ../catpaw-web-starter:
-    version: 1.0.4
-  ../catpaw-markdown-starter:
     version: 1.0.5
+  ../catpaw-starter:
+    version: 1.0.5
+  ../catpaw-web-starter:
+    version: 1.0.5
+  ../catpaw-markdown-starter:
+    version: 1.0.6
 ...
