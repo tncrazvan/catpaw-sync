@@ -1,53 +1,66 @@
 projects:
   ../catpaw-build:
     library: catpaw/build
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-core:
     library: catpaw/core
-    version: 1.0.7
+    version: 1.0.8
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.9
+    version: 1.0.10
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-mysql:
     library: catpaw/mysql
-    version: 1.0.5
+    version: 1.0.6
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-queue:
     library: catpaw/queue
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-raspberrypi:
     library: catpaw/raspberrypi
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-store:
     library: catpaw/store
-    version: 1.0.4
+    version: 1.0.5
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-text:
     library: catpaw/text
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-starter:
     library: catpaw/starter
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 1.0.3
+    version: 1.0.4
+    message: adding psalm.xml configuration
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 1.0.4
+    version: 1.0.5
+    message: adding psalm.xml configuration
     # nuke: true
