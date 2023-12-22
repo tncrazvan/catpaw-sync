@@ -17,7 +17,7 @@ projects:
   ../catpaw-raspberrypi:
     version: 1.0.7
   ../catpaw-store:
-    version: 1.0.8
+    version: 1.0.9
   ../catpaw-text:
     version: 1.0.7
   ../catpaw-starter:
