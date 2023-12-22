@@ -43,6 +43,10 @@ projects:
     library: catpaw/web-starter
     version: 1.0.6
     # nuke: true
+  ../catpaw-svelte-starter:
+    library: catpaw/svelte-starter
+    version: 1.0.0
+    # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
     version: 1.0.7
