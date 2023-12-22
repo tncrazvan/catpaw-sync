@@ -16,7 +16,7 @@
     ],
     "dev:test": [],
     "dev:start": "php -dxdebug.mode=debug -dxdebug.start_with_request=yes ./bin/start --entry='./src/main.php' --libraries='./src/lib/' --info",
-    "dev:watch": "php -dxdebug.mode=debug -dxdebug.start_with_request=yes ./bin/start --entry='./src/main.php' --libraries='./src/lib/' --resources='./resources/' --info --watch",
+    "dev:watch": "php -dxdebug.mode=debug -dxdebug.start_with_request=yes ./bin/start --entry='./src/main.php' --libraries='./src/lib/' --resources='./resources/' --info --watch --php='php -dxdebug.mode=debug -dxdebug.start_with_request=yes'",
     "dev:build": [
       "php -dxdebug.mode=off -dxdebug.start_with_request=no -dphar.readonly=0 ./build.phar --init-config",
       "mv app.phar sync.phar"
