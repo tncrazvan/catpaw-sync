@@ -7,7 +7,7 @@ projects:
   ../catpaw-schedule:
     version: 1.0.5
   ../catpaw-web:
-    version: 1.0.11
+    version: 1.0.12
   ../catpaw-dialog:
     version: 1.0.5
   ../catpaw-mysql:
