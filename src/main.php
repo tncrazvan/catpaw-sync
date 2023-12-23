@@ -107,7 +107,11 @@ function sync(string $env):void {
             $changes = 0;
             foreach ($composer->require as $composerLibrary => &$composerVersion) {
                 if (in_array($composerLibrary, $libraries)) {
-                    $composerVersion = '^'.$versions[$composerLibrary];
+                    $newComposerVersion = '^'.$versions[$composerLibrary];
+                    if ($composerVersion === $newComposerVersion) {
+                        continue;
+                    }
+                    $composerVersion = $newComposerVersion;
                     $changes++;
                 }
             }
