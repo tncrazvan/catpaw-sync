@@ -27,7 +27,7 @@ projects:
   ../catpaw-markdown-starter:
     version: 1.0.10
   ../catpaw-svelte-starter:
-    version: 1.0.6
+    version: 1.0.7
   ../catpaw-htmx:
     version: 1.0.9
 ...
