@@ -13,7 +13,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.33
+    version: 1.0.34
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
@@ -41,7 +41,7 @@ projects:
     # nuke: true
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 1.0.10
+    version: 1.0.11
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
