@@ -17,13 +17,14 @@ use function CatPaw\Text\nocolor;
 use Psr\Log\LoggerInterface;
 
 function main(
-    #[Option("--environment")] string $env,
+    #[Option("--environment")]
+    string $env,
 ) {
     sync(env: $env);
 }
 
 function sync(string $env):void {
-    $env = realpath($env);
+    $env    = realpath($env);
     $envDir = dirname($env);
 
     $red        = foreground(red: 220, green: 20, blue: 20);
@@ -50,12 +51,12 @@ function sync(string $env):void {
     $libraries        = [];
     $versions         = [];
     $pushInstructions = [];
-    $anyNuke = false;
+    $anyNuke          = false;
     foreach ($projects as $projectName => $projectProperties) {
         $library       = $projectProperties['library'] ?? $projectName;
         $versionString = preg_replace('/"/', '\\"', $projectProperties['version']);
-        $nuke          = !!($projectProperties['nuke']??false);
-        if($nuke){
+        $nuke          = !!($projectProperties['nuke'] ?? false);
+        if ($nuke) {
             $anyNuke = true;
         }
         $versionPieces = explode('.', $versionString);
@@ -69,9 +70,9 @@ function sync(string $env):void {
         $versions[$library] = $version;
     }
 
-    if($anyNuke){
+    if ($anyNuke) {
         $logger->info("Removing cache due to nuking.");
-        if(exists(".sync.cache")){
+        if (exists(".sync.cache")) {
             deleteFile(".sync.cache");
         }
     }
@@ -94,11 +95,11 @@ function sync(string $env):void {
         $composer         = json_decode(read($composerFileName));
         $canTest          = isset($composer->scripts->test) && $composer->scripts->test;
 
-        if($nuke){
+        if ($nuke) {
             nuke($cwd);
             echo <<<TEXT
-            {$red}Tags of "$projectName" have been nuked.\n
-            TEXT;
+                {$red}Tags of "$projectName" have been nuked.\n
+                TEXT;
             echo nocolor();
         }
 
@@ -211,7 +212,7 @@ function sync(string $env):void {
     }
 
     $composerUpdateInstructions = [];
-    $anyNuke = false;
+    $anyNuke                    = false;
     foreach ($projects as $projectName => $projectProperties) {
         $versionString = preg_replace('/"/', '\\"', $projectProperties['version']);
         $message       = preg_replace('/"/', '\\"', $projectProperties['message'] ?? "Version $versionString");

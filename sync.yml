@@ -13,7 +13,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.21
+    version: 1.0.22
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
@@ -49,5 +49,9 @@ projects:
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
+    version: 1.0.9
+    # nuke: true
+  ../catpaw-htmx:
+    library: catpaw/htmx
     version: 1.0.9
     # nuke: true

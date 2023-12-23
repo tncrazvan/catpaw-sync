@@ -7,7 +7,7 @@ projects:
   ../catpaw-schedule:
     version: 1.0.8
   ../catpaw-web:
-    version: 1.0.21
+    version: 1.0.22
   ../catpaw-dialog:
     version: 1.0.8
   ../catpaw-mysql:
@@ -28,4 +28,6 @@ projects:
     version: 1.0.9
   ../catpaw-svelte-starter:
     version: 1.0.5
+  ../catpaw-htmx:
+    version: 1.0.9
 ...
