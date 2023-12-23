@@ -88,7 +88,6 @@ function sync(string $env):void {
         $version       = join('.', [$versionPieces[0] ?? '0',$versionPieces[1] ?? '0']);
         $message       = preg_replace('/"/', '\\"', $projectProperties['message'] ?? "Version $versionString");
         $message       = preg_replace('/\n|\s/', ' ', $message);
-        $overwrite     = $projectProperties['overwrite'] ?? false;
 
         $cwd              = "$root/$projectName";
         $composerFileName = "$cwd/composer.json";
@@ -103,9 +102,9 @@ function sync(string $env):void {
             echo nocolor();
         }
 
-        $versionChanges = 0;
 
         if (isset($composer->require)) {
+            $versionChanges = 0;
             foreach ($composer->require as $composerLibrary => &$composerVersion) {
                 if (in_array($composerLibrary, $libraries)) {
                     $newComposerVersion = '^'.$versions[$composerLibrary];
@@ -133,7 +132,6 @@ function sync(string $env):void {
             $cache,
             $projectName,
             $canTest,
-            $overwrite,
             &$testsMessages,
             $red,
             $blue,
@@ -143,41 +141,12 @@ function sync(string $env):void {
             $cian,
             $library,
             $nuke,
-            $versionChanges,
         ) {
-            if (($cache["projects"][$projectName]["version"] ?? '') === $versionString) {
-                if ($canTest) {
-                    [$ok, $testMessage]          = testVersion($cwd);
-                    $testsMessages[$projectName] = $testMessage;
-                    if (!$ok) {
-                        return;
-                    }
-                }
-
-                if ($overwrite) {
-                    if (exists("$cwd/composer.lock")) {
-                        deleteFile("$cwd/composer.lock");
-                    }
-
-                    echo execute("git fetch", $cwd);
-                    echo execute("git pull", $cwd);
-                    // echo execute("git add .", $cwd);
-                    // echo execute("git commit -m\"$message\"", $cwd);
-                    echo execute("git push", $cwd);
-
-                    overwriteVersion(
-                        projectName: $projectName,
-                        library: $library,
-                        versionString: $versionString,
-                        cwd: $cwd,
-                        message: $message,
-                    );
-                    return;
-                }
-                
+            $versionChanged = ($cache["projects"][$projectName]["version"] ?? '') !== $versionString;
+            if (!$versionChanged) {
                 $unstagedChanges = execute("git status --porcelain", $cwd);
 
-                if (trim($unstagedChanges)) {
+                if (trim((string)$unstagedChanges)) {
                     echo <<<TEXT
                         $yellow
                         $cian+++ Unstaged changes +++$yellow
@@ -186,8 +155,15 @@ function sync(string $env):void {
                         TEXT;
                 }
                 echo nocolor();
-
                 return;
+            }
+
+            if ($canTest) {
+                [$ok, $testMessage]          = testVersion($cwd);
+                $testsMessages[$projectName] = $testMessage;
+                if (!$ok) {
+                    return;
+                }
             }
 
             if (exists("$cwd/composer.lock")) {
@@ -266,13 +242,22 @@ function testVersion(string $cwd) {
     $red   = foreground(red: 220, green: 20, blue: 20);
     $green = foreground(red: 150, green: 220);
 
-    $test    = execute("composer run prod:test", $cwd);
-    $ok      = $test->getCode() === 0;
-    $message = $ok?'':join([
-        $red,
-        $test,
-        nocolor(),
-    ]);
+    $test = execute("composer run prod:test", $cwd);
+    $ok   = $test->getCode() === 0;
+    if ($ok) {
+        $message = join([
+            $green,
+            $test,
+            nocolor(),
+        ]);
+    } else {
+        $message = join([
+            $red,
+            $test,
+            nocolor(),
+        ]);
+    }
+    
     return [$ok, $message];
 }
 
