@@ -1,53 +1,53 @@
 projects:
   ../catpaw-build:
     library: catpaw/build
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-core:
     library: catpaw/core
-    version: 1.0.13
+    version: 1.0.14
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.20
+    version: 1.0.21
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-queue:
     library: catpaw/queue
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-raspberrypi:
     library: catpaw/raspberrypi
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-store:
     library: catpaw/store
-    version: 1.0.9
+    version: 1.0.10
     # nuke: true
   ../catpaw-text:
     library: catpaw/text
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-starter:
     library: catpaw/starter
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
-    version: 1.0.4
+    version: 1.0.5
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 1.0.8
+    version: 1.0.9
     # nuke: true
