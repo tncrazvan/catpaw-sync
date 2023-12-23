@@ -152,6 +152,8 @@ function sync(string $env):void {
 
                     echo execute("git fetch", $cwd);
                     echo execute("git pull", $cwd);
+                    echo execute("git add composer.json", $cwd);
+                    echo execute("git commit -m\"$message\"", $cwd);
                     // echo execute("git add .", $cwd);
                     // echo execute("git commit -m\"$message\"", $cwd);
                     echo execute("git push", $cwd);
@@ -187,6 +189,8 @@ function sync(string $env):void {
 
             echo execute("git fetch", $cwd);
             echo execute("git pull", $cwd);
+            echo execute("git add composer.json", $cwd);
+            echo execute("git commit -m\"$message\"", $cwd);
             // echo execute("git add .", $cwd);
             // echo execute("git commit -m\"$message\"", $cwd);
             echo execute("git push", $cwd);
