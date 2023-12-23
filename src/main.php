@@ -104,15 +104,18 @@ function sync(string $env):void {
         }
 
         if (isset($composer->require)) {
+            $changes = 0;
             foreach ($composer->require as $composerLibrary => &$composerVersion) {
                 if (in_array($composerLibrary, $libraries)) {
                     $composerVersion = '^'.$versions[$composerLibrary];
+                    $changes++;
                 }
             }
     
-            write($composerFileName, trim(json_encode($composer, JSON_PRETTY_PRINT)));
-    
-            write($composerFileName, trim(str_replace('\/', '/', read($composerFileName))));
+            if ($changes > 0) {
+                write($composerFileName, trim(json_encode($composer, JSON_PRETTY_PRINT)));
+                write($composerFileName, trim(str_replace('\/', '/', read($composerFileName))));
+            }
         }
 
         /**
@@ -152,8 +155,6 @@ function sync(string $env):void {
 
                     echo execute("git fetch", $cwd);
                     echo execute("git pull", $cwd);
-                    echo execute("git add composer.json", $cwd);
-                    echo execute("git commit -m\"$message\"", $cwd);
                     // echo execute("git add .", $cwd);
                     // echo execute("git commit -m\"$message\"", $cwd);
                     echo execute("git push", $cwd);
@@ -189,8 +190,6 @@ function sync(string $env):void {
 
             echo execute("git fetch", $cwd);
             echo execute("git pull", $cwd);
-            echo execute("git add composer.json", $cwd);
-            echo execute("git commit -m\"$message\"", $cwd);
             // echo execute("git add .", $cwd);
             // echo execute("git commit -m\"$message\"", $cwd);
             echo execute("git push", $cwd);
