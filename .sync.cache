@@ -3,7 +3,7 @@ projects:
   ../catpaw-build:
     version: 1.0.7
   ../catpaw-core:
-    version: 1.0.12
+    version: 1.0.13
   ../catpaw-schedule:
     version: 1.0.7
   ../catpaw-web:
