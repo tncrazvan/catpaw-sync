@@ -45,7 +45,7 @@ projects:
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
-    version: 1.0.7
+    version: 1.0.8
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
