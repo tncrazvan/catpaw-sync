@@ -13,7 +13,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.34
+    version: 1.0.35
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
