@@ -93,7 +93,7 @@ function sync(string $env):void {
         $cwd              = "$root/$projectName";
         $composerFileName = "$cwd/composer.json";
         $composer         = json_decode(read($composerFileName));
-        $canTest          = isset($composer->scripts->test) && $composer->scripts->test;
+        $canTest          = isset($composer->scripts->{'prod:test'}) && $composer->scripts->{'prod:test'};
 
         if ($nuke) {
             nuke($cwd);
@@ -103,8 +103,9 @@ function sync(string $env):void {
             echo nocolor();
         }
 
+        $versionChanges = 0;
+
         if (isset($composer->require)) {
-            $changes = 0;
             foreach ($composer->require as $composerLibrary => &$composerVersion) {
                 if (in_array($composerLibrary, $libraries)) {
                     $newComposerVersion = '^'.$versions[$composerLibrary];
@@ -112,11 +113,11 @@ function sync(string $env):void {
                         continue;
                     }
                     $composerVersion = $newComposerVersion;
-                    $changes++;
+                    $versionChanges++;
                 }
             }
     
-            if ($changes > 0) {
+            if ($versionChanges > 0) {
                 write($composerFileName, trim(json_encode($composer, JSON_PRETTY_PRINT)));
                 write($composerFileName, trim(str_replace('\/', '/', read($composerFileName))));
             }
@@ -142,16 +143,17 @@ function sync(string $env):void {
             $cian,
             $library,
             $nuke,
+            $versionChanges,
         ) {
-            if ($canTest) {
-                [$ok, $testMessage]          = testVersion($cwd);
-                $testsMessages[$projectName] = $testMessage;
-                if (!$ok) {
-                    return;
-                }
-            }
-
             if (($cache["projects"][$projectName]["version"] ?? '') === $versionString) {
+                if ($canTest) {
+                    [$ok, $testMessage]          = testVersion($cwd);
+                    $testsMessages[$projectName] = $testMessage;
+                    if (!$ok) {
+                        return;
+                    }
+                }
+
                 if ($overwrite) {
                     if (exists("$cwd/composer.lock")) {
                         deleteFile("$cwd/composer.lock");
