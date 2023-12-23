@@ -41,15 +41,15 @@ projects:
     # nuke: true
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 1.0.8
+    version: 1.0.9
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
-    version: 1.0.5
+    version: 1.0.6
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 1.0.9
+    version: 1.0.10
     # nuke: true
   ../catpaw-htmx:
     library: catpaw/htmx
