@@ -5,15 +5,15 @@ projects:
     # nuke: true
   ../catpaw-core:
     library: catpaw/core
-    version: 1.0.18
+    version: 1.0.19
+    # nuke: true
+  ../catpaw-web:
+    library: catpaw/web
+    version: 1.0.51
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
     version: 1.0.9
-    # nuke: true
-  ../catpaw-web:
-    library: catpaw/web
-    version: 1.0.50
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
