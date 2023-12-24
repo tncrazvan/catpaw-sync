@@ -5,7 +5,7 @@ projects:
     # nuke: true
   ../catpaw-core:
     library: catpaw/core
-    version: 1.0.17
+    version: 1.0.18
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
@@ -13,7 +13,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.45
+    version: 1.0.46
     # nuke: true
   ../catpaw-dialog:
     library: catpaw/dialog
