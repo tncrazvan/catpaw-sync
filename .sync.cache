@@ -3,11 +3,11 @@ projects:
   ../catpaw-build:
     version: 1.0.9
   ../catpaw-core:
-    version: 1.0.16
+    version: 1.0.17
   ../catpaw-schedule:
     version: 1.0.9
   ../catpaw-web:
-    version: 1.0.43
+    version: 1.0.44
   ../catpaw-dialog:
     version: 1.0.9
   ../catpaw-mysql:
@@ -23,11 +23,11 @@ projects:
   ../catpaw-starter:
     version: 1.0.9
   ../catpaw-web-starter:
-    version: 1.0.12
+    version: 1.0.13
   ../catpaw-markdown-starter:
     version: 1.0.11
   ../catpaw-svelte-starter:
-    version: 1.0.10
+    version: 1.0.11
   ../catpaw-htmx:
     version: 1.0.10
 ...
