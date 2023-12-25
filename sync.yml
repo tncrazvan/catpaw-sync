@@ -45,11 +45,11 @@ projects:
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
-    version: 1.0.11
+    version: 1.0.12
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 1.0.11
+    version: 1.0.12
     # nuke: true
   ../catpaw-htmx:
     library: catpaw/htmx
