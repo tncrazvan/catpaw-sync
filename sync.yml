@@ -9,7 +9,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.62
+    version: 1.0.63
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
@@ -41,15 +41,15 @@ projects:
     # nuke: true
   ../catpaw-web-starter:
     library: catpaw/web-starter
-    version: 1.0.13
+    version: 1.0.14
     # nuke: true
   ../catpaw-svelte-starter:
     library: catpaw/svelte-starter
-    version: 1.0.12
+    version: 1.0.13
     # nuke: true
   ../catpaw-markdown-starter:
     library: catpaw/markdown-starter
-    version: 1.0.12
+    version: 1.0.13
     # nuke: true
   ../catpaw-htmx:
     library: catpaw/htmx
