@@ -9,7 +9,7 @@ projects:
     # nuke: true
   ../catpaw-web:
     library: catpaw/web
-    version: 1.0.63
+    version: 1.0.64
     # nuke: true
   ../catpaw-schedule:
     library: catpaw/schedule
